@@ -1,0 +1,19 @@
+// Colors shared through all application.
+$bleu_identitaire: #1e2336;
+$brique: #ff4238;
+$bleu_semi_fonce: #0076a8;
+$light_grey: #b3b3b3; //TODO Changer
+$vert_anis: rgb(181, 191, 0); //TODO Changer
+$success: #28a745;
+$error: #dc3545;
+
+/* Exports */
+:export {
+  bleu_identitaire: $bleu_identitaire;
+  brique: $brique;
+  bleu_semi_fonce: $bleu_semi_fonce;
+  light_grey: $light_grey;
+  vert_anis: $vert_anis;
+  success: $success;
+  error: $error;
+}

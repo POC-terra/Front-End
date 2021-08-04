@@ -1,0 +1,4 @@
+{
+  "chromeWebSecurity": false,
+  "env": { "api_server": "http://localhost:3000", "kc_login": "arnaud", "kc_password": "password" }
+}

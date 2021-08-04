@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": ["import", "prettier"],
+  "extends": ["react-app", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 7
+  },
+  "globals": {
+    "cy": true,
+    "Cypress": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-console": "warn",
+    "no-eval": "error",
+    "no-debugger": "error",
+    "import/first": "error"
+  }
+}

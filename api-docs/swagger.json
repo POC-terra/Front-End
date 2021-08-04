@@ -1,0 +1,1129 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Back end NodeJS",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8084",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/materials": {
+      "get": {
+        "operationId": "getMaterials",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "colonne_tri",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "colonne_tri_option",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "in": "query",
+            "name": "DB_Magasin",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_Zone",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_Reference",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_ReferenceImpactante",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "sortColumn",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/materialDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/overviews": {
+      "get": {
+        "operationId": "getOverviews",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_Magasin",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_Zone",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "sortColumn",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/overviewDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/magasins": {
+      "get": {
+        "operationId": "getMagasins",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "DB_Magasin",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "sortColumn",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/magasinDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/seuils": {
+      "get": {
+        "operationId": "getSeuils",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "magasin",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "zone",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "critere",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "sortColumn",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/seuilDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tour_controle": {
+      "get": {
+        "operationId": "getTourControlGlobal",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "REC_STATUS",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "OFA_STATUS",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "URGENCE_RECEPTION",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "FLUX",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "sortDesc",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "in": "query",
+            "name": "sortColumn",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/towerControlDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tour_controle/{id}": {
+      "get": {
+        "operationId": "getTourControlByID",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "range",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/towerControlDetailDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/dashboard/temps_traitement_urgent": {
+      "get": {
+        "operationId": "getTempsTraitementJour",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nbJoursGlissants",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/dashboardTempsTraitementDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/dashboard/references_uniques": {
+      "get": {
+        "operationId": "getReferencesUniques",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/dashboardReferencesUniquesDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/dashboard/temps_traitement_jour_mois": {
+      "get": {
+        "operationId": "getTempsTraitementJourMois",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "refIds",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/dashboardTempsTraitementJourMois"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/dashboard/rotation_piece": {
+      "get": {
+        "operationId": "getRotationPiece",
+        "summary": "",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "nbPieceChaude",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "zoneIds",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/dashboardRotationPiece"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "materialDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "DB_Magasin": {
+                "type": "string"
+              },
+              "DB_Zone": {
+                "type": "string"
+              },
+              "DB_Reference": {
+                "type": "string"
+              },
+              "DB_CTT": {
+                "type": "string"
+              },
+              "DB_CTU": {
+                "type": "number"
+              },
+              "DB_DateStock": {
+                "type": "string"
+              },
+              "DB_DQLM0": {
+                "type": "integer"
+              },
+              "DB_DQPM0": {
+                "type": "integer"
+              },
+              "DB_DQLM1": {
+                "type": "integer"
+              },
+              "DB_DQPM1": {
+                "type": "integer"
+              },
+              "DB_DQLM2": {
+                "type": "integer"
+              },
+              "DB_DQPM2": {
+                "type": "integer"
+              },
+              "DB_ReferenceImpactante": {
+                "type": "string"
+              },
+              "DB_StockMin": {
+                "type": "number"
+              },
+              "DB_StockMax": {
+                "type": "number"
+              },
+              "DB_ReferenceImpactanteEncoded": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "material_number": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "overviewDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "DB_Magasin": {
+                "type": "string"
+              },
+              "DB_Zone": {
+                "type": "string"
+              },
+              "DB_ReferenceImpactantesChaudes": {
+                "type": "integer"
+              },
+              "DB_ReferenceImpactantesMoyennes": {
+                "type": "integer"
+              },
+              "DB_ReferenceImpactantesFroides": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "overview_number": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "magasinDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "DB_ReferenceImpactantesChaudes": {
+                "type": "integer"
+              },
+              "DB_ReferenceImpactantesMoyennes": {
+                "type": "integer"
+              },
+              "DB_ReferenceImpactantesFroides": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "magasin_number": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "seuilDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "magasin": {
+                "type": "string"
+              },
+              "zone": {
+                "type": "string"
+              },
+              "seuil_min": {
+                "type": "string"
+              },
+              "seuil_max": {
+                "type": "string"
+              },
+              "critere": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "seuil_number": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "towerControlDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "_id": {
+                "type": "string"
+              },
+              "REC_ID": {
+                "type": "integer"
+              },
+              "REC_STATUS": {
+                "type": "integer"
+              },
+              "OFA_STATUS": {
+                "type": "integer"
+              },
+              "CTN_NB_STATUS_FINAUX": {
+                "type": "integer"
+              },
+              "CTN_NB": {
+                "type": "integer"
+              },
+              "TAC_NB_STATUS_FINAUX": {
+                "type": "integer"
+              },
+              "TAC_NB": {
+                "type": "integer"
+              },
+              "PARTNUMBER": {
+                "type": "string"
+              },
+              "URGENCE_RECEPTION": {
+                "type": "string"
+              },
+              "FLUX": {
+                "type": "string"
+              },
+              "FLUX_DETAIL": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "count": {
+          "type": "integer"
+        }
+      }
+    },
+    "towerControlDetailDescription": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "object",
+          "properties": {
+            "_id": {
+              "type": "string"
+            },
+            "REC_ID": {
+              "type": "integer"
+            },
+            "REC_STATUS": {
+              "type": "integer"
+            },
+            "OFA_STATUS": {
+              "type": "integer"
+            },
+            "CTN_NB_STATUS_FINAUX": {
+              "type": "integer"
+            },
+            "CTN_NB": {
+              "type": "integer"
+            },
+            "TAC_NB_STATUS_FINAUX": {
+              "type": "integer"
+            },
+            "TAC_NB": {
+              "type": "integer"
+            },
+            "PARTNUMBER": {
+              "type": "string"
+            },
+            "URGENCE_RECEPTION": {
+              "type": "string"
+            },
+            "FLUX": {
+              "type": "string"
+            },
+            "FLUX_DETAIL": {
+              "type": "string"
+            },
+            "OFA_TYPE_PRELEVEMENT": {
+              "type": "string"
+            },
+            "OFA_QUANTITE": {
+              "type": "number"
+            },
+            "TOF_ID": {
+              "type": "number"
+            },
+            "DATE_CREATION": {
+              "type": "string"
+            },
+            "TS_CREATION": {
+              "type": "number"
+            },
+            "DATE_FERMETURE": {
+              "type": "string"
+            },
+            "TS_FERMETURE": {
+              "type": "number"
+            },
+            "CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "REC_ID": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "REC_CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "REC_ID": {
+                    "type": "integer"
+                  },
+                  "OP_TYPE": {
+                    "type": "string"
+                  },
+                  "REC_STATUS": {
+                    "type": "number"
+                  },
+                  "REC_URGENCE": {
+                    "type": "string"
+                  },
+                  "REC_ART_PARTNO": {
+                    "type": "string"
+                  },
+                  "REC_QUANTITE_RECUE": {
+                    "type": "number"
+                  },
+                  "TRE_ID": {
+                    "type": "string"
+                  },
+                  "TFR_ID": {
+                    "type": "string"
+                  },
+                  "TS": {
+                    "type": "number"
+                  },
+                  "TEMPS_CHANGEMENT_STATUS": {
+                    "type": "number"
+                  },
+                  "TEMPS_CUMULATIF": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "OFA_CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "REC_ID": {
+                    "type": "integer"
+                  },
+                  "OP_TYPE": {
+                    "type": "string"
+                  },
+                  "OFA_STATUS": {
+                    "type": "number"
+                  },
+                  "OFA_ID": {
+                    "type": "number"
+                  },
+                  "TS": {
+                    "type": "number"
+                  },
+                  "TOF_ID": {
+                    "type": "number"
+                  },
+                  "OFA_ART_PARTNO": {
+                    "type": "string"
+                  },
+                  "OFA_TYPE_PRELEVEMENT": {
+                    "type": "string"
+                  },
+                  "OFA_QUANTITE": {
+                    "type": "number"
+                  },
+                  "TEMPS_CHANGEMENT_STATUS": {
+                    "type": "number"
+                  },
+                  "TEMPS_CUMULATIF": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "CTN_CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "CTN_ID": {
+                    "type": "number"
+                  },
+                  "CTN_STATUS": {
+                    "type": "number"
+                  },
+                  "CYCLE_VIE_DETAIL": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "REC_ID": {
+                          "type": "integer"
+                        },
+                        "OP_TYPE": {
+                          "type": "string"
+                        },
+                        "CTN_STATUS": {
+                          "type": "number"
+                        },
+                        "CTN_ID": {
+                          "type": "number"
+                        },
+                        "CTN_QUANTITE": {
+                          "type": "number"
+                        },
+                        "TS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CHANGEMENT_STATUS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CUMULATIF": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "TAC_CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "TAC_ID": {
+                    "type": "number"
+                  },
+                  "TAC_STATUS": {
+                    "type": "number"
+                  },
+                  "CYCLE_VIE_DETAIL": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "REC_ID": {
+                          "type": "integer"
+                        },
+                        "OP_TYPE": {
+                          "type": "string"
+                        },
+                        "TAC_STATUS": {
+                          "type": "number"
+                        },
+                        "TAC_ID": {
+                          "type": "number"
+                        },
+                        "MET_LIBELLE": {
+                          "type": "string"
+                        },
+                        "TS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CHANGEMENT_STATUS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CUMULATIF": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "DOH_CYCLE_VIE": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "DOH_ID": {
+                    "type": "number"
+                  },
+                  "DOH_STATUS": {
+                    "type": "number"
+                  },
+                  "CYCLE_VIE_DETAIL": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "REC_ID": {
+                          "type": "integer"
+                        },
+                        "OFA_ID": {
+                          "type": "number"
+                        },
+                        "OP_TYPE": {
+                          "type": "string"
+                        },
+                        "DOH_STATUS": {
+                          "type": "number"
+                        },
+                        "DOH_ID": {
+                          "type": "number"
+                        },
+                        "DOH_DATE_ENGAGEMENT": {
+                          "type": "string"
+                        },
+                        "OFA_QUANTITE": {
+                          "type": "number"
+                        },
+                        "TS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CHANGEMENT_STATUS": {
+                          "type": "number"
+                        },
+                        "TEMPS_CUMULATIF": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "dashboardTempsTraitementDescription": {
+      "type": "object",
+      "properties": {
+        "jours": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string"
+              },
+              "temps_traitement_urgent": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "moyenne": {
+          "type": "number"
+        }
+      }
+    },
+    "dashboardReferencesUniquesDescription": {
+      "type": "object",
+      "properties": {
+        "references_uniques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "dashboardTempsTraitementJourMois": {
+      "type": "object",
+      "properties": {
+        "jours": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "part_number": {
+                "type": "string"
+              },
+              "temps_reception": {
+                "type": "number"
+              },
+              "temps_conditionnement": {
+                "type": "number"
+              },
+              "temps_transport": {
+                "type": "number"
+              },
+              "temps_stockage": {
+                "type": "number"
+              },
+              "temps_total": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "mois": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "part_number": {
+                "type": "string"
+              },
+              "temps_reception": {
+                "type": "number"
+              },
+              "temps_conditionnement": {
+                "type": "number"
+              },
+              "temps_transport": {
+                "type": "number"
+              },
+              "temps_stockage": {
+                "type": "number"
+              },
+              "temps_total": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "dashboardRotationPiece": {
+      "type": "object",
+      "properties": {
+        "rotation_piece_zone": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zone": {
+                "type": "string"
+              },
+              "nb_pieces_chaudes": {
+                "type": "number"
+              },
+              "nb_piece_rotation": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

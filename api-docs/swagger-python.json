@@ -1,0 +1,83 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Back end Python",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/seuils": {
+      "put": {
+        "operationId": "postSeuils",
+        "summary": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "seuils",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "seuils": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "magasin": {
+                        "type": "string"
+                      },
+                      "zone": {
+                        "type": "string"
+                      },
+                      "seuil_min": {
+                        "type": "number"
+                      },
+                      "seuil_max": {
+                        "type": "number"
+                      },
+                      "critere": {
+                        "type": "string",
+                        "enum": [
+                          "DB_DQLM1",
+                          "DB_DQPM1"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/modificationSeuilDescription"
+            }
+          },
+          "500": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "modificationSeuilDescription": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
