@@ -1,13 +1,16 @@
 # Stage 1 - the build process
-FROM node:10 as build-deps
+FROM node:12 as build-deps
 
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
 RUN npm install
+RUN chmod +x /env.sh && sh /env.sh && cp env-config.js public/
+
 
 COPY . ./
 
+RUN npm run build
 
 # Stage 2 - the production environment
 FROM nginx:1.12-alpine
