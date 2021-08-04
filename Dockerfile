@@ -5,8 +5,6 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
 RUN npm install
-RUN chmod +x /env.sh && sh /env.sh && cp env-config.js public/
-
 
 COPY . ./
 
