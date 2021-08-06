@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-vote-front-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front-prod
+  template:
+    metadata:
+      labels:
+        app: azure-vote-front-prod
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+        - name: azure-vote-front-prod
+          image: registrynexword.azurecr.io/prod/frontend:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          ports:
+            - containerPort: 80
+          env:
+            - name: NODE
+              value: "azure-vote-back-node-prod"
+            - name: PYTHON
+              value: "azure-vote-back-python-prod"
+            - name: API_BASE_URL
+              value: "http://localhost:8084"
+            - name: API_PYTHON_BASE_URL
+              value: "http://localhost:5000"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front-prod
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: azure-vote-front-prod
