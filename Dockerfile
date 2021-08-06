@@ -2,16 +2,11 @@
 FROM node:14 as build-deps
 
 
-
-
-ENV API_BASE_URL http://localhost:8084
-ENV API_PYTHON_BASE_URL localhost
-
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
 RUN npm install
-RUN npm run generate-env
+
 COPY . ./
 
 RUN npm run build
