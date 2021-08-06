@@ -11,7 +11,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 
 RUN npm install
-
+RUN npm generate-env
 COPY . ./
 
 RUN npm run build
